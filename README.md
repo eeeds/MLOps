@@ -15,3 +15,54 @@ conda create -n mlops python=3.9
 ```
 conda activate mlops
 ```
+## Install dependencies
+```
+pip install -r requirements.txt
+```
+## Install Ipykernel
+```
+conda install -n mlops_platzi ipykernel --update-deps --force-reinstall
+```
+# DVC
+## Basic commands
+### Init a new project
+```
+dvc init
+```
+### Add a new file
+```
+dvc add README.md
+```
+## More commands
+![](images/dvc-sheet.png)
+
+## Install DVC
+```
+pip install dvc
+```
+## Init dvc
+```
+dvc init
+```
+## I'm going to use DVC with Google Drive to manage my project, add remote with Google Drive
+Install dvc_gdrive with pip
+```
+pip install dvc-gdrive
+```
+Then add the remote as:
+```
+dvc remote add myremote gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
+```
+## Add the folder `dataset` to the remote
+```
+dvc add dataset/finantials.csv --to-remote -r myremote
+```
+## Add another remote for the model
+```
+dvc remote add mymodel gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
+```
+## Add model to the remote
+```
+dvc add model/model.pkl --to-remote -r mymodel
+```
+## Delete all the `.csv` files from our project
