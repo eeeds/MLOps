@@ -65,4 +65,15 @@ dvc remote add mymodel gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
 ```
 dvc add model/model.pkl --to-remote -r mymodel
 ```
-## Delete all the `.csv` files from our project
+## Delete all the `.csv` files from our project (and the pickle model)
+
+## Add another branch called `continuos_training_pipeline`
+```
+git checkout -b continuos_training_pipeline
+```
+## Working on [prepare.py](src/prepare.py)
+### Use a breakpoint to make sure that all is working well
+```
+breakpoint()
+```
+Exit with `q`
