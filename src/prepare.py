@@ -15,17 +15,17 @@ logger = logging.getLogger(__name__)
 
 logging.info('Fetching data...')
 ## Connect datasets to DVC's API
-movie_data_path = api.get_url('dataset/movies.csv', remote ='myremote')
-finantials_data_path = api.get_url('dataset/finantials.csv', remote ='myremote')
-full_data_data_path = api.get_url('dataset/full_data.csv', remote ='myremote')
-opening_gross_data_path = api.get_url('dataset/opening_gross.csv', remote ='myremote')
+movie_data_path = api.read('dataset/movies.csv', remote ='myremote', mode = 'r', encoding='utf-8')
+full_data_data_path = api.read('dataset/full_data.csv', remote ='myremote', mode = 'r', encoding='utf-8')
+opening_gross_data_path = api.read('dataset/opening_gross.csv', remote ='myremote', mode = 'r', encoding='utf-8')
+finantials_data_path = api.read("dataset/finantials.csv", remote ='myremote', mode = 'r', encoding='utf-8')
 ## Read them as pandas dataframes
-fin_data = pd.read_csv(finantials_data_path)
-movie_data = pd.read_csv(movie_data_path)
-full_data = pd.read_csv(full_data_data_path)
-opening_data = pd.read_csv(opening_gross_data_path)
+fin_data = pd.read_csv(StringIO(finantials_data_path))
+movie_data = pd.read_csv(StringIO(movie_data_path))
+full_data = pd.read_csv(StringIO(full_data_data_path))
+opening_data = pd.read_csv(StringIO(opening_gross_data_path))
 
-print(movie_data.columns)
+
 numeric_columns_mask = (movie_data.dtypes==float) | (movie_data.dtypes==int)
 numeric_columns = [column for column in numeric_columns_mask.index if numeric_columns_mask[column]]
 movie_data = movie_data[numeric_columns+['movie_title']]
