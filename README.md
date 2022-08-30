@@ -104,3 +104,11 @@ pip install requirements_text.txt
 ```
 pytest tests.py
 ```
+## Dockerize the app
+```
+docker build . -t model-api:v1
+```
+Run the container
+```
+docker run -p 8000:8000 model-api:v1
+```
