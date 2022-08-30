@@ -93,3 +93,14 @@ pip install -r api/requirements.txt
 ## After creating the app, we can test it with the following command:
 ```
 uvicorn api.main:app
+```
+## Tests
+### Install the dependencies
+```
+pip install requirements_text.txt
+```
+## [Working on the tests](tests.py)
+## Run the tests
+```
+pytest tests.py
+```
