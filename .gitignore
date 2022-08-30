@@ -2,3 +2,5 @@
 *.csv
 *.pkl
 -ipynb_checkpoints/
+api/__pycache__/
+api/app/__pycache__/

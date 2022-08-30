@@ -5,5 +5,5 @@ stages:
     - dataset/full_data.csv
   training:
     cmd: python src/train.py
-    outs:
+    deps:
     - dataset/full_data.csv

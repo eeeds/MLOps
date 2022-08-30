@@ -81,6 +81,15 @@ Exit with `q`
 ## After training the model, add the model to the remote
 ```
 dvc run -n prepare -o dataset/full_data.csv python src/prepare.py
-dvc run -n training -o dataset/full_data.csv python src/train.py
+dvc run -n training -d dataset/full_data.csv python src/train.py
 ```
 ## When these files changes you can use `dvc diff` to see the changes and `dvc repro` to apply them.
+
+# Working on [Fastapi app](api)
+Install the dependencies
+```
+pip install -r api/requirements.txt
+```
+## After creating the app, we can test it with the following command:
+```
+uvicorn api.main:app
