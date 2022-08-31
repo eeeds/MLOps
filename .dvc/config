@@ -2,5 +2,7 @@
     remote = myremote
 ['remote "myremote"']
     url = gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
+    gdrive_use_service_account = true
 ['remote "mymodel"']
     url = gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
+    gdrive_use_service_account = true

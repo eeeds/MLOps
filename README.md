@@ -61,6 +61,12 @@ dvc add dataset/finantials.csv --to-remote -r myremote
 ```
 dvc remote add mymodel gdrive://1U0nayKU5gnZo5cNLxCKu5SUvcyHnCJhv
 ```
+## Add service account credentials
+```
+dvc remote modify myremote gdrive_use_service_account true
+dvc remote modify myremote --local \
+              gdrive_service_account_json_file_path path/to/file.json
+```
 ## Add model to the remote
 ```
 dvc add model/model.pkl --to-remote -r mymodel
@@ -82,6 +88,10 @@ Exit with `q`
 ```
 dvc run -n prepare -o dataset/full_data.csv python src/prepare.py
 dvc run -n training -d dataset/full_data.csv python src/train.py
+```
+## See the dags with 
+```
+dvc dag
 ```
 ## When these files changes you can use `dvc diff` to see the changes and `dvc repro` to apply them.
 
@@ -111,4 +121,10 @@ docker build . -t model-api:v1
 Run the container
 ```
 docker run -p 8000:8000 model-api:v1
+```
+## Create a secret key
+```
+1. Create your key at Google
+2. Copy the base64 encoded key, you can obtain it doing `base64 -w 0 <key_file>`
+3. Go to Github and create a new action-secret with the key
 ```
