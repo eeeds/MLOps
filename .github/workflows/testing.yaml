@@ -21,6 +21,8 @@ jobs:
       - name: Test API
         run: |
           export GDRIVE_CREDENTIALS_DATA=$(python utilities/setter.py)
-          dvc pull model/model.pkl -r mymodel
+          dvc remote modify mymodel --local gdrive_service_account_json_file_path path.json
+          dvc remote default mymodel
+          dvc pull model/model.pkl 
           pytest tests.py
 
