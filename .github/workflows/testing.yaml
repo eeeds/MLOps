@@ -20,7 +20,7 @@ jobs:
           pip install -r requirements_test.txt
       - name: Test API
         run: |
-          export GDRIVE_CREDENTIALS_DATA=${python utilities/setter.py}
+          export GDRIVE_CREDENTIALS_DATA=$(python utilities/setter.py)
           dvc pull model/model.pkl -r mymodel
           pytest tests.py
 
